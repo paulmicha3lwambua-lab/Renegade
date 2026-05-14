@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renegade | Michael Paul</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg-light: #15151f;
+    --accent: #ff2d75;
+    --accent-2: #00d4ff;
+    --text: #f5f5f7;
+    --text-dim: #a1a1aa;
+    --border: #262635;
+  }
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: -1px;
+  }
+
+  .logo svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logo span {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Nav */
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(10, 10, 15, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+  }
+
+  nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--accent);
+  }
+
+  /* Pages */
+  .page {
+    display: none;
+    min-height: calc(100vh - 80px);
+    animation: fadeIn 0.4s ease;
+  }
+
+  .page.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: radial-gradient(circle at 50% 30%, rgba(255, 45, 117, 0.15), transparent 50%);
+  }
+
+  .hero h1 {
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+  }
+
+  .hero p {
+    font-size: 20px;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .card {
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+  }
+
+  .card iframe,
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+
+  .card p {
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+
+  /* Auditions */
+  .audition-card {
+    background: linear-gradient(135deg, rgba(255, 45, 117, 0.1), rgba(0, 212, 255, 0.1));
+    border: 1px solid var(--accent);
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .audition-card h3 {
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 40px; }
+    .nav-links { gap: 15px; font-size: 14px; }
+    .hero { padding: 60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <svg viewBox="0 0 100 100" fill="none">
+        <path d="M50 5 L90 30 L90 70 L50 95 L10 70 L10 30 Z" 
+              stroke="url(#gradient)" stroke-width="4" fill="none"/>
+        <path d="M30 40 L70 40 M30 60 L70 60" 
+              stroke="url(#gradient)" stroke-width="4" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff2d75"/>
+            <stop offset="100%" stop-color="#00d4ff"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span>RENEGADE</span>
+    </div>
+    <ul class="nav-links">
+      <li><a class="nav-link active" data-page="home">Home</a></li>
+      <li><a class="nav-link" data-page="work">Work</a></li>
+      <li><a class="nav-link" data-page="auditions">Auditions</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HOME PAGE -->
+<div class="page active" id="home">
+  <div class="hero">
+    <h1>Michael Paul<br>Director & Creator</h1>
+    <p>Film Producer • 3D Model Artist • Screenwriter • Music & Video Director</p>
+    <a class="btn" data-page="work">View My Work</a>
+  </div>
+
+  <div class="container">
+    <h2>About Renegade</h2>
+    <p style="color: var(--text-dim); max-width: 700px; margin-top: 20px;">
+      Renegade is the creative hub of Michael Paul — pushing boundaries in film, 3D art, and music. 
+      Every project is built to break conventions and tell stories that hit hard.
+    </p>
+  </div>
+</div>
+
+<!-- WORK PAGE -->
+<div class="page" id="work">
+  <div class="container">
+    <h2>Trailers & Films</h2>
+    <div class="grid">
+      <div class="card">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        <div class="card-content">
+          <h3>Project Eclipse</h3>
+          <p>Sci-fi thriller short film. Official trailer.</p>
+        </div>
+      </div>
+      <div class="card">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        <div class="card-content">
+          <h3>Neon Dust</h3>
+          <p>Music video directed & edited by Michael Paul.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 80px;">Behind The Scenes</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800" alt="BTS">
+        <div class="card-content">
+          <h3>Set Design Process</h3>
+          <p>Building dystopian sets for Project Eclipse.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800" alt="3D Work">
+        <div class="card-content">
+          <h3>3D Asset Breakdown</h3>
+          <p>Modeling & texturing workflow in Blender.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AUDITIONS PAGE -->
+<div class="page" id="auditions">
+  <div class="container">
+    <h2>Open Auditions</h2>
+    <p style="color: var(--text-dim); margin-bottom: 40px;">
+      Join Renegade. Looking for bold talent for upcoming projects.
+    </p>
+
+    <div class="audition-card">
+      <span class="badge">OPEN</span>
+      <h3>Lead Actor - Project Eclipse</h3>
+      <p><strong>Role:</strong> Male, 25-35. Action/sci-fi background preferred.</p>
+      <p><strong>Date:</strong> 15-17 Nov 2026 | Nairobi, Kenya</p>
+      <p><strong>Apply:</strong> Send headshot + 1min monologue to renegade@renegadefilms.co.ke</p>
+    </div>
+
+    <div class="audition-card">
+      <span class="badge">OPEN</span>
+      <h3>3D Character Artists</h3>
+      <p><strong>Role:</strong> Freelance remote. Blender/Maya experience required.</p>
+      <p><strong>Deadline:</strong> 30 Nov 2026</p>
+      <p><strong>Apply:</strong> Portfolio to careers@renegadefilms.co.ke</p>
+    </div>
+
+    <div class="audition-card">
+      <span class="badge">CLOSED</span>
+      <h3>Voice Actors</h3>
+      <p>Casting complete. Check back for next project.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Renegade Studios | Created by Michael Paul</p>
+  <p style="margin-top: 10px;">Instagram | YouTube | Vimeo</p>
+</footer>
+
+<script>
+  // Simple page routing
+  const links = document.querySelectorAll('.nav-link, [data-page]');
+  const pages = document.querySelectorAll('.page');
+
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const page = link.dataset.page;
+      
+      pages.forEach(p => p.classList.remove('active'));
+      document.getElementById(page).classList.add('active');
+      
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      document.querySelector(`.nav-link[data-page="${page}"]`)?.classList.add('active');
+      
+      window.scrollTo(0, 0);
+    });
+  });
+</script>
+
+</body>
+</html>
